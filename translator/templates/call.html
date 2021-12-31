@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+
+</head>
+
+<body>
+
+
+    <div class="main">
+        <div class="speechtxt">Speech in bn</div>
+        <div class="speak"><input type="text" id="speechtotext" placeholder="please speak to type" onclick="record()"></div>
+    </div>
+
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "bn";
+            recognition.onresult = function(event) {
+
+                document.getElementById('speechtotext').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+        }
+    </script>
+
+
+</body>
+
+</html>
